@@ -1,0 +1,4 @@
+consumer_key=12345
+consumer_secret=12345
+auth_set_access_token=12345
+access_token_secret=12345
