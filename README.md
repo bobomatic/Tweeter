@@ -26,15 +26,19 @@ $ cd ../lorem
 $ npm install
 $ npm start
 ```
+You will need a Twitter account and a Twitter API account.
+Open keys.txt and paste in your twitter API keys and tokens, Save keys.txt
 
 ## Features
-* displays user information (reads your auth codes from text file on local machine)
+* displays user information (reads your twitter API auth codes from text file on local machine)
 * displays recent tweets in your twitter feed
 * displays the 5 most popular tweets based on the search_string you provide in the command line
 * optional: retweets the most most popular tweet using your user account
 
 ### To do:
-* image processing options e.g. grayscale, resize, thumbnail
+Further development will be required to:
+- put authorisation info in a separate text file
+- tidy up code (function/OO)
 
 ## Examples of Use
 
@@ -54,9 +58,6 @@ A search string is compulsory.
 
 ## Status
 Basic demo functionality is complete.
-Further development will be required to:
-- put authorisation info in a separate text file
-- tidy up code (function/OO)
 
 ## Sources
 This project is inspired by Andrei Neagoie Python Zero to Mastery course:
