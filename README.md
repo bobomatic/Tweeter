@@ -28,30 +28,35 @@ $ npm start
 ```
 
 ## Features
-* displays user information (hard coded
-* places them in a destination folder
+* displays user information (reads your auth codes from text file on local machine)
+* displays recent tweets in your twitter feed
+* displays the 5 most popular tweets based on the search_string you provide in the command line
+* optional: retweets the most most popular tweet using your user account
 
 ### To do:
 * image processing options e.g. grayscale, resize, thumbnail
 
 ## Examples of Use
 
-Usage: jpg2png [none] source_directory: [str] = ... target_directory: Optional[str] = ...
+Usage: tweeter.py [none] search_string: [str] = ...
 
-Converted files are placed in the target folder.
+Output is displayed in the command line.
 
 The following options are available:
 * no options available
 
 Code example:
 
-`python3 jpg2png Pokedex/ my_pngs/`
+`python3 tweeter.py olympics`
+`python3 tweeter.py "Machine Learning"`
 
-If the target folder is omitted, a folder named 'converted' will be created in the current directory
+A search string is compulsory.
 
 ## Status
-Basic jpg to png functionality is complete.
-Further development will be required to introduce image processing options
+Basic demo functionality is complete.
+Further development will be required to:
+- put authorisation info in a separate text file
+- tidy up code (function/OO)
 
 ## Sources
 This project is inspired by Andrei Neagoie Python Zero to Mastery course:
