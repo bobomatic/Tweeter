@@ -2,6 +2,7 @@ import tweepy
 import time as t
 import sys
 import pprint
+import os
 
 # grab first argument of command line using sys
 try:
@@ -9,13 +10,29 @@ try:
 except IndexError:
     print('Please specify a topic to search')
 
-# Tweepy api access
-# auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth = tweepy.OAuthHandler('ezYzuo3CDmfulYHpc4NJaQbqm', 'yoZgb48bMiCCAjcNy1NYA5mHMdpDeSY4TZUMIvj2iCZs6xQJgw')
-# auth.set_access_token(access_token, access_token_secret)
-auth.set_access_token('393544670-3xKw3iCSx7y39iJJkMgls3Pcy6EiBqmm0eCudBu7',
-                      'I2o8qv0jGskhpiUKmaFb0FT0nrDuRjL653jyK2OKA0l6H')
-api = tweepy.API(auth)
+def authenticate():
+    """Authenticate tweepy api using access keys and tokens from keys.txt"""
+    try:
+        with open('keys.txt', mode='r') as file:
+            line = file.readline()
+            consumer_key = line.strip().split('consumer_key=')[1]
+            line = file.readline()
+            consumer_secret = line.strip().split('consumer_secret=')[1]
+            line = file.readline()
+            auth_set_access_token = line.strip().split('auth_set_access_token=')[1]
+            line = file.readline()
+            access_token_secret = line.strip().split('access_token_secret=')[1]
+            print(consumer_key, consumer_secret, auth_set_access_token, access_token_secret)
+    except tweepy.TweepError as e:
+        print(e.reason, '/n Please check keys.txt is present in current directory and try again.')
+
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(auth_set_access_token, access_token_secret)
+    api = tweepy.API(auth)
+    return api
+
+
+api = authenticate()
 user = api.me()
 
 
