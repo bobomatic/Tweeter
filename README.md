@@ -37,8 +37,7 @@ Open keys.txt and paste in your twitter API keys and tokens, Save keys.txt
 
 ### To do:
 Further development will be required to:
-- put authorisation info in a separate text file
-- tidy up code (function/OO)
+- improve reusability of code (function/OO)
 
 ## Examples of Use
 
