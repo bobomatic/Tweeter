@@ -125,7 +125,8 @@ def top_5_tweets(search_string, numberOfTweetsToSearch):
 
 
 # sort tweets by retweets and print the top 5
-for i, tweet in enumerate(sorted(top_5_tweets(search_string, 100), reverse=True, key=lambda k: k['retweet_count'])):
+for i, tweet in enumerate(sorted(top_5_tweets(search_string, 100),
+                                 reverse=True, key=lambda k: k['retweet_count'])):
     if i == 10:
         break
     print(f'{tweet}\n')
