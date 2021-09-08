@@ -39,7 +39,8 @@ user = api.me()
 
 # Print my twitter details
 print('\nMy Twitter Details:')
-print('username: ', user.name, 'screen_name: ', user.screen_name, 'followers: ', user.followers_count)
+print('username: ', user.name, 'screen_name: ', user.screen_name, 'followers: ',
+      user.followers_count)
 
 # Print out tweets on my timeline
 public_tweets = api.home_timeline()
