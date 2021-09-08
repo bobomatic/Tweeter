@@ -10,6 +10,7 @@ try:
 except IndexError:
     print('Please specify a topic to search')
 
+
 def authenticate():
     """Authenticate tweepy api using access keys and tokens from keys.txt"""
     try:
