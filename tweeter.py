@@ -4,6 +4,8 @@ import sys
 import pprint
 import os
 
+print("CONFLICCCCCT!!!")
+
 # grab first argument of command line using sys
 try:
     search_string = sys.argv[1]
