@@ -7,8 +7,10 @@ import os
 # grab first argument of command line using sys
 try:
     search_string = sys.argv[1]
-except IndexError:
-    print('Please specify a topic to search')
+except IndexError as e:
+    print('Error - Please specify a topic to search!')
+    print('example: python3 tweeter.py "Machine Learning"')
+    sys.exit(0)
 
 
 def authenticate():
@@ -23,7 +25,7 @@ def authenticate():
             auth_set_access_token = line.strip().split('auth_set_access_token=')[1]
             line = file.readline()
             access_token_secret = line.strip().split('access_token_secret=')[1]
-            print(consumer_key, consumer_secret, auth_set_access_token, access_token_secret)
+            # print(consumer_key, consumer_secret, auth_set_access_token, access_token_secret)
     except tweepy.TweepError as e:
         print(e.reason, '/n Please check keys.txt is present in current directory and try again.')
 
@@ -88,7 +90,7 @@ def top_5_tweets(search_string, numberOfTweetsToSearch):
     tweepy_search = tweepy.Cursor(api.search, search_string).items(numberOfTweetsToSearch)
     for i, tweet in enumerate(limit_handler(tweepy_search)):
         try:
-            if tweet.favorite_count > 5 or tweet.retweet_count > 2000:
+            if tweet.favorite_count > 5 or tweet.retweet_count > 1000:
                 # print(tweet, '\n') #debug: print out the json status object
                 # check not a duplicate
                 if not hashed_tweets.count(hash(tweet.text)):
@@ -128,6 +130,6 @@ def top_5_tweets(search_string, numberOfTweetsToSearch):
 # sort tweets by retweets and print the top 5
 for i, tweet in enumerate(sorted(top_5_tweets(search_string, 100),
                                  reverse=True, key=lambda k: k['retweet_count'])):
-    if i == 10:
+    if i == 5:
         break
     print(f'{tweet}\n')
