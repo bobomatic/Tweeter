@@ -51,6 +51,7 @@ The following options are available:
 Code example:
 
 `python3 tweeter.py olympics`
+
 `python3 tweeter.py "Machine Learning"`
 
 A search string is compulsory.
